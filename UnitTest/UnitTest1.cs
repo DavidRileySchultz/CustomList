@@ -19,7 +19,7 @@ namespace UnitTest
         public void Add_Int_CheckIfCountIncreases()
         {
             //Arrange
-            customList<int> test = new customList<int>();
+            CustomList<int> test = new CustomList<int>();
             int expectedResult = 1;
 
             //Act
@@ -46,7 +46,7 @@ namespace UnitTest
         public void Add_Int_CheckValueIndex1()
         {
             //Arrange
-            customList<int> test = new customList<int>();
+            CustomList<int> test = new CustomList<int>();
             int expectedResult1 = 2;
             int expectedResult2 = 16;
             //Act
@@ -60,7 +60,7 @@ namespace UnitTest
         public void Add_Int_CheckValueIndex0WithMultipleAdds()
         {
             //Arrange
-            customList<int> test = new customList<int>();
+            CustomList<int> test = new CustomList<int>();
             int expectedResult1 = 2;
             int expectedResult2 = 16;
             int expectedResult3 = 23;
@@ -95,7 +95,7 @@ namespace UnitTest
         public void Add_Double_CheckIfCountIncreases()
         {
             //Arrange
-            customList<double> test = new customList<double>();
+            CustomList<double> test = new CustomList<double>();
             int expectedResult = 1;
          
             //Act 
@@ -110,7 +110,7 @@ namespace UnitTest
         public void Add_Double_CheckValueIndex0()
         {
             //Arrange
-            customList<double> test = new customList<double>();
+            CustomList<double> test = new CustomList<double>();
             double expectedResult1 = .12;
             double expectedResult2 = 1.23;
 
@@ -122,11 +122,11 @@ namespace UnitTest
             //Assert
             Assert.AreEqual(expectedResult1, test[0]);
         }
-
+        [TestMethod]
         public void Add_Double_CheckValueIndex1()
         {
             //Arrange
-            customList<double> test = new customList<double>();
+            CustomList<double> test = new CustomList<double>();
             double expectedResult1 = .12;
             double expectedResult2 = 1.23;
 
@@ -137,6 +137,70 @@ namespace UnitTest
 
             //Assert
             Assert.AreEqual(expectedResult2, test[1]);
+        }
+
+        [TestMethod]
+        public void Remove_Int_CheckIfIntRemoved()
+        {
+            //Arrange
+            CustomList<int> test = new CustomList<int>();
+            test.Add(1);
+            test.Add(2);
+            test.Add(3);
+            test.Add(4);
+            int expectedResult = 4;
+            
+            //Act
+            test.Remove(3);
+            int actualResult = test[2];
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod]
+        public void Remove_CheckAtIndex0()
+        {
+            //Arrange
+            CustomList<int> test = new CustomList<int>();
+            test.Add(1);
+            test.Add(2);
+            test.Add(3);
+            test.Add(4);
+            int expectedResult = 2;
+
+            //Act
+            test.Remove(1);
+            int actualResult = test[0];
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult);
+
+        }
+
+        [TestMethod]
+        public void Remove_CheckIfRemovesFirst()
+        {
+            //Arrange
+            CustomList<int> test = new CustomerList<int>();
+            test.Add(1);
+            test.Add(2);
+            test.Add(3);
+            test.Add(4);
+            test.Add(1);
+            test.Add(2);
+            test.Add(3);
+            test.Add(4);
+
+
+
+            //Act
+            test.Remove(3);
+            int actualResult = test[5]
+
+            //Assert
+
+
         }
     }
 }
