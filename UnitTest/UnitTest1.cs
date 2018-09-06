@@ -90,55 +90,7 @@ namespace UnitTest
             //Assert
             Assert.AreEqual(expectedResult1, test[0]);
         }
-
-        [TestMethod]
-        public void Add_Double_CheckIfCountIncreases()
-        {
-            //Arrange
-            CustomList<double> test = new CustomList<double>();
-            int expectedResult = 1;
-         
-            //Act 
-            test.Add(.24);
-
-            //Assert
-            Assert.AreEqual(expectedResult, test.Count);
-
-        }
-
-        [TestMethod]
-        public void Add_Double_CheckValueIndex0()
-        {
-            //Arrange
-            CustomList<double> test = new CustomList<double>();
-            double expectedResult1 = .12;
-            double expectedResult2 = 1.23;
-
-
-            //Act
-            test.Add(expectedResult1);
-            test.Add(expectedResult2);
-
-            //Assert
-            Assert.AreEqual(expectedResult1, test[0]);
-        }
-        [TestMethod]
-        public void Add_Double_CheckValueIndex1()
-        {
-            //Arrange
-            CustomList<double> test = new CustomList<double>();
-            double expectedResult1 = .12;
-            double expectedResult2 = 1.23;
-
-
-            //Act
-            test.Add(expectedResult1);
-            test.Add(expectedResult2);
-
-            //Assert
-            Assert.AreEqual(expectedResult2, test[1]);
-        }
-
+        
         [TestMethod]
         public void Remove_Int_CheckIfIntRemoved()
         {
@@ -191,16 +143,60 @@ namespace UnitTest
             test.Add(2);
             test.Add(3);
             test.Add(4);
-
+            int expectedResult = 4;
 
 
             //Act
             test.Remove(3);
-            int actualResult = test[5]
+            int actualResult = test[2]
 
             //Assert
+            Assert.AreEqual(expectedResult, actualResult)
 
 
         }
+
+        [TestMethod]
+        public void Remove_CheckIfCountDecreases()
+        {
+            //Arrange
+            CustomList<int> test = new CustomList<int>;
+            test.Add(1);
+            test.Add(2);
+            test.Add(3);
+            test.Add(4);
+            int expectedResult = 3;
+            //Act
+            test.Remove(1);
+            int actualResult = test.Count;
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult);
+
+        }
+
+        [TestMethod]
+        public void Remove_CheckIfListShifts()
+        {
+            //Arrange
+            CustomList<int> test = new CustomList<int>();
+            test.Add(1);
+            test.Add(2);
+            test.Add(3);
+            test.Add(4);
+            test.Add(1);
+            test.Add(2);
+            test.Add(3);
+            test.Add(4);
+
+            int expectedResult = 7;
+            //Act
+            test.Remove(3);
+            int actualResult = test.Count;
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+           
+
     }
 }
