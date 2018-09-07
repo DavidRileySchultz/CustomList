@@ -134,7 +134,7 @@ namespace UnitTest
         public void Remove_CheckIfRemovesFirst()
         {
             //Arrange
-            CustomList<int> test = new CustomerList<int>();
+            CustomList<int> test = new CustomList<int>();
             test.Add(1);
             test.Add(2);
             test.Add(3);
@@ -196,7 +196,8 @@ namespace UnitTest
             //Assert
             Assert.AreEqual(expectedResult, actualResult);
         }
-           
+           [TestMethod]
+           public void OverLoad+_CheckIf
 
     }
 }
