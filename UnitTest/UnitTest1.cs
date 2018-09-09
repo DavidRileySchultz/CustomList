@@ -32,7 +32,7 @@ namespace UnitTest
         public void Add_Int_CheckValueIndex0()
         {
             //Arrange
-            customList<int> test = new customList<int>();
+            CustomList<int> test = new CustomList<int>();
             int expectedResult = 2;
 
             //Act
@@ -310,7 +310,7 @@ namespace UnitTest
             test5.Add(7);
             test5.Add(8);
             test5.Add(9);
-
+            
             int expectedResult = test5;
 
             //Act
@@ -345,5 +345,8 @@ namespace UnitTest
             //Assert
             Assert.AreEqual(expectedResult, actualResult);
         }
+
+        [TestMethod]
+
     }
 }
