@@ -119,7 +119,7 @@ namespace UnitTest
             Assert.AreEqual(expectedResult, actualResult);
         }
         
-        /*[TestMethod]
+        [TestMethod]
         public void Remove_Int_CheckIfIntRemoved()
         {
             //Arrange
@@ -225,32 +225,26 @@ namespace UnitTest
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [TestMethod]
+        /*[TestMethod]
         public void Remove_CheckNonExistantValue()
         {
             //Arrange
             CustomList<int> test1 = new CustomList<int>();
-            CustomList<int> test2 = new CustomList<int>();
             test1.Add(1);
             test1.Add(2);
             test1.Add(3);
             test1.Add(4);
             test1.Add(5);
-            test2.Add(1);
-            test2.Add(2);
-            test2.Add(3);
-            test2.Add(4);
-            test2.Add(5);
-
-            int expectedResult = test2;
+           
+            int expectedResult = test1;
 
             //Act
-            test.Remove(8);
+            test1.Remove(8);
             int actualResult = test1;
             //Assert
             Assert.AreEqual(expectedResult, actualResult);
         }
-
+        /*
         [TestMethod]
         public void Overload_Plus_CheckIfListsCombine()
         {

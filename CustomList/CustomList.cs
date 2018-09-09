@@ -76,5 +76,21 @@ namespace CustomList
                 array[count - 1] = addNewValue;
             }
         }
+        public void Remove(T valueToRemove)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                if (array[i].Equals(valueToRemove))
+                {
+                    count--;
+                    for (; i < count; i++)
+                    {
+                        array[i] = array[i + 1];
+                    }
+                    array[count] = default(T);
+                    break;
+                }
+            }
+        }
     }
 }
