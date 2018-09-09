@@ -119,7 +119,7 @@ namespace UnitTest
             Assert.AreEqual(expectedResult, actualResult);
         }
         
-        [TestMethod]
+        /*[TestMethod]
         public void Remove_Int_CheckIfIntRemoved()
         {
             //Arrange
@@ -347,6 +347,6 @@ namespace UnitTest
         }
 
         [TestMethod]
-
+        */
     }
 }

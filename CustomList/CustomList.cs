@@ -10,7 +10,7 @@ namespace CustomList
     {
         private int count { get; set; }
         private int newCapacity { get; set; }
-        public T[] newArray;
+        public T[] array;
 
         public int Count
         {
@@ -22,12 +22,11 @@ namespace CustomList
             get {return newCapacity;}
             private set {newCapacity = value;}
         }
-        
         public CustomList()
         {
             count = 0;
             newCapacity = 4;
-            newArray = new T[newCapacity];
+            array = new T[newCapacity];
         }
         public CustomList(int startingCapacity)
         {
@@ -40,17 +39,41 @@ namespace CustomList
             {
                 newCapacity = 4;
             }
-            newArray = new T[newCapacity];
+            array = new T[newCapacity];
         }
         public T this[int index] //indexer
         {
             get
             {
-                return newArray[index];
+                return array[index];
             }
             set
             {
-                newArray[index] = value;
+                array[index] = value;
+            }
+        }
+
+        public void Add(T addNewValue)
+        {
+            count++;
+            T[] newArray;
+
+            if (count > newCapacity)
+            {
+                newCapacity *= 2;
+                newArray = new T[newCapacity];
+
+                for (int i = 0; i < count - 1; i++)
+                {
+                    newArray[i] = array[i];
+                }
+
+                newArray[count - 1] = addNewValue;
+                array = newArray;
+            }
+            else
+            {
+                array[count - 1] = addNewValue;
             }
         }
     }
