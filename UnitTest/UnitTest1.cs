@@ -517,11 +517,108 @@ namespace UnitTest
             int expectedResult = 6;
 
             //Act
-            CustomList<int> actualResult = (test1 + test2).Zip;
+            CustomList<int> actualResult = test1.Zip(test2);
 
 
             //Assert
             Assert.AreEqual(expectedResult, actualResult.Count);
+        }
+        [TestMethod]
+        public void Zip_CheckListAtIndex2()
+        {
+            //Arrange
+            CustomList<int> test1 = new CustomList<int>();
+            CustomList<int> test2 = new CustomList<int>();
+
+            test1.Add(1);
+            test1.Add(3);
+            test1.Add(5);
+            test2.Add(2);
+            test2.Add(4);
+            test2.Add(6);
+
+            int expectedResult = 3;
+
+            //Act
+            CustomList<int> actualResult = test1.Zip(test2);
+
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult[3]);
+        }
+        [TestMethod]
+        public void Zip_CheckListAtMultipleIndex()
+        {
+            //Arrange
+            CustomList<int> test1 = new CustomList<int>();
+            CustomList<int> test2 = new CustomList<int>();
+
+            test1.Add(1);
+            test1.Add(3);
+            test1.Add(5);
+            test2.Add(2);
+            test2.Add(4);
+            test2.Add(6);
+
+            
+
+            //Act
+            CustomList<int> actualResult = test1.Zip(test2);
+
+
+            //Assert
+            Assert.AreEqual(test1[0], actualResult[0]);
+            Assert.AreEqual(test1[1], actualResult[2]);
+            Assert.AreEqual(test1[2], actualResult[4]);
+            Assert.AreEqual(test2[0], actualResult[1]);
+            Assert.AreEqual(test2[1], actualResult[3]);
+            Assert.AreEqual(test2[2], actualResult[5]);
+        }
+        [TestMethod]
+        public void Zip_CheckListAtIndex0String()
+        {
+            //Arrange
+            CustomList<string> test1 = new CustomList<string>();
+            CustomList<string> test2 = new CustomList<string>();
+
+            test1.Add("Hello");
+            test1.Add("name");
+            test1.Add("Riley");
+            test2.Add("my");
+            test2.Add("is");
+            test2.Add("Schultz");
+
+            string expectedResult = "Hello";
+
+            //Act
+            CustomList<string> actualResult = test1.Zip(test2);
+
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult[0]);
+        }
+        [TestMethod]
+        public void Zip_CheckListAtIndex5()
+        {
+            //Arrange
+            CustomList<int> test1 = new CustomList<int>();
+            CustomList<int> test2 = new CustomList<int>();
+
+            test1.Add(1);
+            test1.Add(3);
+            test1.Add(5);
+            test2.Add(2);
+            test2.Add(4);
+            test2.Add(6);
+
+            int expectedResult = 6;
+
+            //Act
+            CustomList<int> actualResult = test1.Zip(test2);
+
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult[5]);
         }
     }
 }

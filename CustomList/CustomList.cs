@@ -137,5 +137,23 @@ namespace CustomList
             }
             return list1;
         }
+
+        public CustomList<T> Zip(CustomList<T> list2)
+        {
+            CustomList<T> list3 = new CustomList<T>();
+            for (int i = 0; i < Count + list2.Count; i++)
+            {
+                if(Count > i)
+                {
+                    list3.Add(array[i]);
+                }
+                if(list2.Count > i)
+                {
+                    list3.Add(array[i]);
+                }
+
+            }
+            return list3;
+        }
     }
 }
