@@ -499,5 +499,29 @@ namespace UnitTest
             //Assert
             Assert.AreEqual(expectedResult, actualResult.Count);
         }
+
+        [TestMethod]
+        public void Zip_CheckListCount()
+        {
+            //Arrange
+            CustomList<int> test1 = new CustomList<int>();
+            CustomList<int> test2 = new CustomList<int>();
+
+            test1.Add(1);
+            test1.Add(3);
+            test1.Add(5);
+            test2.Add(2);
+            test2.Add(4);
+            test2.Add(6);
+
+            int expectedResult = 6;
+
+            //Act
+            CustomList<int> actualResult = (test1 + test2).Zip;
+
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult.Count);
+        }
     }
 }
