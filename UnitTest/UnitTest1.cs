@@ -225,8 +225,8 @@ namespace UnitTest
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        /*[TestMethod]
-        public void Remove_CheckNonExistantValue()
+        [TestMethod]
+        public void Remove_CheckNonExistantValueAtLastIndex()
         {
             //Arrange
             CustomList<int> test1 = new CustomList<int>();
@@ -236,11 +236,30 @@ namespace UnitTest
             test1.Add(4);
             test1.Add(5);
            
-            int expectedResult = test1;
+            int expectedResult = 5;
 
             //Act
             test1.Remove(8);
-            int actualResult = test1;
+            int actualResult = test1[4];
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+        [TestMethod]
+        public void Remove_CheckNonExistantValueCount()
+        {
+            //Arrange
+            CustomList<int> test1 = new CustomList<int>();
+            test1.Add(1);
+            test1.Add(2);
+            test1.Add(3);
+            test1.Add(4);
+            test1.Add(5);
+
+            int expectedResult = 5;
+
+            //Act
+            test1.Remove(8);
+            int actualResult = test1.Count;
             //Assert
             Assert.AreEqual(expectedResult, actualResult);
         }
