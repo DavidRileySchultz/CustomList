@@ -263,77 +263,132 @@ namespace UnitTest
             //Assert
             Assert.AreEqual(expectedResult, actualResult);
         }
+        
+        [TestMethod]
+        public void Overload_Plus_CheckIfListsCombineAtIndex3()
+        {
+            //Arrange
+            CustomList<int> test1 = new CustomList<int>();
+            CustomList<int> test2 = new CustomList<int>();
+            
+            test1.Add(1);
+            test1.Add(2);
+            test1.Add(3);
+            test2.Add(4);
+            test2.Add(5);
+            test2.Add(6);
+            
+
+            int expectedResult = 4;
+
+            //Act
+
+
+            CustomList<int> actualResult = test1 + test2;
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult[3]);
+
+        }
+        [TestMethod]
+        public void Overload_Plus_CheckIfListsCombineCount()
+        {
+            //Arrange
+            CustomList<int> test1 = new CustomList<int>();
+            CustomList<int> test2 = new CustomList<int>();
+            
+            test1.Add(1);
+            test1.Add(2);
+            test1.Add(3);
+            test1.Add(4);
+            test2.Add(5);
+            test2.Add(6);
+            test2.Add(7);
+            test2.Add(8);            
+
+            int expectedResult = 8;
+
+            //Act
+
+
+            CustomList<int> actualResult = test1 + test2;
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult.Count);
+
+        }
+
+        [TestMethod]
+        public void Overload_Plus_CheckIfListsCombineAllIndexes()
+        {
+            //Arrange
+            CustomList<int> test1 = new CustomList<int>();
+            CustomList<int> test2 = new CustomList<int>();
+            
+            test1.Add(1);
+            test1.Add(2);
+            test1.Add(3);
+            test2.Add(5);
+            test2.Add(6);
+            test2.Add(7);
+            
+            //Act
+
+            CustomList<int> actualResult = test1 + test2;
+
+            //Assert
+            Assert.AreEqual(test1[0], actualResult[0]);
+            Assert.AreEqual(test1[1], actualResult[1]);
+            Assert.AreEqual(test1[2], actualResult[2]);
+            Assert.AreEqual(test2[0], actualResult[3]);
+            Assert.AreEqual(test2[1], actualResult[4]);
+            Assert.AreEqual(test2[2], actualResult[5]);
+            
+
+        }
+        
+        [TestMethod]
+        public void Overload_Plus_CheckIfSingleIndexStringCombine()
+        {
+            //Arrange
+            CustomList<string> test1 = new CustomList<string>();
+            CustomList<string> test2 = new CustomList<string>();
+
+            test1.Add("Hello");
+            test2.Add("World");
+            
+            
+            //Act
+            CustomList<string> actualResult = test1 + test2;
+
+
+            //Assert
+            Assert.AreEqual(test1[0], actualResult[0]);
+            Assert.AreEqual(test2[0], actualResult[1]);
+            
+        }
+
+        [TestMethod]
+        public void Overload_Plus_CheckIfSingleIndexIntCombine()
+        {
+            //Arrange
+            CustomList<int> test1 = new CustomList<int>();
+            CustomList<int> test2 = new CustomList<int>();
+
+            test1.Add(2);
+            test2.Add(5);
+
+
+            //Act
+            CustomList<int> actualResult = test1 + test2;
+
+
+            //Assert
+            Assert.AreEqual(test1[0], actualResult[0]);
+            Assert.AreEqual(test2[0], actualResult[1]);
+
+        }
         /*
-        [TestMethod]
-        public void Overload_Plus_CheckIfListsCombine()
-        {
-            //Arrange
-            CustomList<int> test1 = new CustomList<int>();
-            CustomList<int> test2 = new CustomList<int>();
-            CustomList<int> test3 = new CustomList<int>();
-            CustomList<int> test4 = new CustomList<int>();
-            test1.Add(1);
-            test1.Add(2);
-            test1.Add(3);
-            test2.Add(4);
-            test2.Add(5);
-            test2.Add(6);
-            test4.Add(1);
-            test4.Add(2);
-            test4.Add(3);
-            test4.Add(4);
-            test4.Add(5);
-            test4.Add(6);
-            int expectedResult = test4; 
-
-            //Act
-            
-            test3 = test1 + test2;
-            int actualResult = test3;
-
-            //Assert
-            Assert.AreEqual(expectedResult, actualResult);
-
-        }
-
-        [TestMethod]
-        public void Overload_Plus_CheckIfMultipleListsCombine()
-        {
-            //Arrange
-            CustomList<int> test1 = new CustomList<int>();
-            CustomList<int> test2 = new CustomList<int>();
-            CustomList<int> test3 = new CustomList<int>();
-            CustomList<int> test4 = new CustomList<int>();
-            CustomList<int> test5 = new CustomList<int>();
-            test1.Add(1);
-            test1.Add(2);
-            test1.Add(3);
-            test2.Add(4);
-            test2.Add(5);
-            test2.Add(6);
-            test3.Add(7);
-            test3.Add(8);
-            test3.Add(9);
-            test5.Add(1);
-            test5.Add(2);
-            test5.Add(3);
-            test5.Add(4);
-            test5.Add(5);
-            test5.Add(6);
-            test5.Add(7);
-            test5.Add(8);
-            test5.Add(9);
-            
-            int expectedResult = test5;
-
-            //Act
-            test4 = test1 + test2 + test3;
-            int actualResult = test4;
-
-            //Assert
-            Assert.AreEqual(expectedResult, actualResult);
-        }
-
         [TestMethod]
         public void Overload_Minus_CheckIfListsSubtract()
         {
@@ -357,9 +412,6 @@ namespace UnitTest
 
             //Assert
             Assert.AreEqual(expectedResult, actualResult);
-        }
-
-        [TestMethod]
-        */
+        }   */
     }
 }

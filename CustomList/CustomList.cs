@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable
     {
         private int count { get; set; }
         private int newCapacity { get; set; }
-        public T[] array;
+        public T[] array { get; set; }
 
         public int Count
         {
@@ -53,6 +54,18 @@ namespace CustomList
             }
         }
 
+        public IEnumerator<T> GetEnumerator()
+        {
+            foreach (T element in array)
+            {
+                yield return element;
+            }
+        }
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
+        }
+
         public void Add(T addNewValue)
         {
             count++;
@@ -91,6 +104,18 @@ namespace CustomList
                     break;
                 }
             }
+        }
+        public static CustomList<T> operator +(CustomList<T> list1, CustomList<T> list2)
+        {
+            CustomList<T> result;
+
+            result = list1;
+            foreach (T item in list2)
+            {
+                result.Add(item);
+            }
+
+            return result;
         }
     }
 }
