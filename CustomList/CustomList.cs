@@ -42,7 +42,7 @@ namespace CustomList
             }
             array = new T[newCapacity];
         }
-        public T this[int index] //indexer
+        public T this[int index]
         {
             get
             {
@@ -149,7 +149,7 @@ namespace CustomList
                 }
                 if(list2.Count > i)
                 {
-                    list3.Add(array[i]);
+                    list3.Add(list2.array[i]);
                 }
 
             }

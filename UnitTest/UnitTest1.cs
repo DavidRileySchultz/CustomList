@@ -544,7 +544,7 @@ namespace UnitTest
 
 
             //Assert
-            Assert.AreEqual(expectedResult, actualResult[3]);
+            Assert.AreEqual(expectedResult, actualResult[2]);
         }
         [TestMethod]
         public void Zip_CheckListAtMultipleIndex()
