@@ -107,15 +107,35 @@ namespace CustomList
         }
         public static CustomList<T> operator +(CustomList<T> list1, CustomList<T> list2)
         {
-            CustomList<T> result;
-
-            result = list1;
-            foreach (T item in list2)
+            CustomList<T> list3 = new CustomList<T>();
+            for (int i = 0; i < list1.Count; i++)
             {
-                result.Add(item);
+                list3.Add(list1.array[i]);
+            }
+            for (int i = 0; i < list2.Count; i++)
+            {
+                list3.Add(list2.array[i]);
             }
 
-            return result;
+            return list3;
+        }
+
+        public static CustomList<T> operator -(CustomList<T> list1, CustomList<T> list2)
+        {
+            for(int i = 0; i < list1.Count; i++)
+            {
+                for (int j = 0; j < list2.Count; j++)
+                {
+                    if (list1.array[i].Equals(list2.array[j]))
+                    {
+                        list1.Remove(list2.array[j]);
+                        i--;
+                        break;
+
+                    }
+                }
+            }
+            return list1;
         }
     }
 }

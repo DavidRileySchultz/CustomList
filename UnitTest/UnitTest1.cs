@@ -388,30 +388,116 @@ namespace UnitTest
             Assert.AreEqual(test2[0], actualResult[1]);
 
         }
-        /*
+        
         [TestMethod]
-        public void Overload_Minus_CheckIfListsSubtract()
+        public void Overload_Minus_CheckIfListsSubtractWith1IndexCount()
         {
             //Arrange
             CustomList<int> test1 = new CustomList<int>();
             CustomList<int> test2 = new CustomList<int>();
-            CustomList<int> test3 = new CustomList<int>();
-            CustomList<int> test4 = new CustomList<int>();
+            
             test1.Add(1);
-            test1.Add(2);
-            test1.Add(3);
-            test2.Add(4);
             test2.Add(1);
-            test2.Add(6);
-            test4.Add(2);
-            test4.Add(3);
-            int expectedResult = test4;
+
+            int expectedResult = 0;
+
+
             //Act
-            test3 = test1 - test2;
-            int actualResult = test3;
+            CustomList<int> actualResult = test1 - test2;
 
             //Assert
-            Assert.AreEqual(expectedResult, actualResult);
-        }   */
+            Assert.AreEqual(expectedResult, actualResult.Count);
+        }
+
+        [TestMethod]
+        public void Overload_Minus_CheckIfListsSubtractAtIndex0()
+        {
+            //Arrange
+            CustomList<int> test1 = new CustomList<int>();
+            CustomList<int> test2 = new CustomList<int>();
+
+            test1.Add(1);
+            test2.Add(1);
+
+            int expectedResult = 0;
+
+
+            //Act
+            CustomList<int> actualResult = test1 - test2;
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult[0]);
+        }
+
+        [TestMethod]
+        public void Overload_Minus_CheckIfSubtractsMultipleCount()
+        {
+            //Arrange
+            CustomList<int> test1 = new CustomList<int>();
+            CustomList<int> test2 = new CustomList<int>();
+
+            test1.Add(1);
+            test1.Add(14);
+            test1.Add(6);
+            test1.Add(3);
+            test1.Add(22);
+            test2.Add(1);
+            test2.Add(3);
+            test2.Add(6);
+            test2.Add(14);
+
+            int expectedResult = 1;
+
+            //Act
+            CustomList<int> actualResult = test1 - test2;
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult.Count);
+
+        }
+        [TestMethod]
+        public void Overload_Minus_CheckIfSubtractsMultipleAtIndex0()
+        {
+            //Arrange
+            CustomList<int> test1 = new CustomList<int>();
+            CustomList<int> test2 = new CustomList<int>();
+
+            test1.Add(1);
+            test1.Add(14);
+            test1.Add(6);
+            test1.Add(3);
+            test1.Add(22);
+            test2.Add(1);
+            test2.Add(3);
+            test2.Add(6);
+            test2.Add(14);
+
+            int expectedResult = 22;
+            //Act
+            CustomList<int> actualResult = test1 - test2;
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult[0]);
+
+        }
+        [TestMethod]
+        public void Overload_Minus_CheckIfListsSubtractStringCount()
+        {
+            //Arrange
+            CustomList<string> test1 = new CustomList<string>();
+            CustomList<string> test2 = new CustomList<string>();
+
+            test1.Add("Hello");
+            test2.Add("World");
+
+            int expectedResult = 1;
+
+
+            //Act
+            CustomList<string> actualResult = test1 - test2;
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult.Count);
+        }
     }
 }
