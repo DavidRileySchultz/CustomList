@@ -16,7 +16,6 @@ namespace CustomList
         public int Count
         {
             get {return count;}
-            private set {count = value;}
         }
         public int Capacity
         {
@@ -56,14 +55,14 @@ namespace CustomList
 
         public IEnumerator<T> GetEnumerator()
         {
-            foreach (T element in array)
+            for(int i = 0; i < Count; i++)
             {
-                yield return element;
+                yield return array[i];
             }
         }
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return this.GetEnumerator();
+            return GetEnumerator();
         }
 
         public void Add(T addNewValue)
@@ -96,7 +95,7 @@ namespace CustomList
                 if (array[i].Equals(valueToRemove))
                 {
                     count--;
-                    for (; i < count; i++)
+                    for (;  i < count; i++)
                     {
                         array[i] = array[i + 1];
                     }
@@ -116,7 +115,6 @@ namespace CustomList
             {
                 list3.Add(list2.array[i]);
             }
-
             return list3;
         }
 
@@ -131,7 +129,6 @@ namespace CustomList
                         list1.Remove(list2.array[j]);
                         i--;
                         break;
-
                     }
                 }
             }
@@ -154,6 +151,16 @@ namespace CustomList
 
             }
             return list3;
+        }
+        public override string ToString()
+        {
+            string stringArray = "";
+            if(Count > 0)
+            {
+                for (int i = 0; i < Count; i++)
+                    stringArray += Convert.ToString(array[i]);
+            }
+            return stringArray;
         }
     }
 }

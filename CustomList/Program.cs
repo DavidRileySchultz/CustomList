@@ -10,12 +10,30 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+            
+            CustomList<int> myList = new CustomList<int>();
+            CustomList<int> myList2 = new CustomList<int>();
+            myList.Add(12);
+            myList.Add(10);
+            myList.Add(9);
+            myList2.Add(12);
+            myList2.Add(32);
+            myList2.Add(9);
+            CustomList<int> myList3 = myList - myList2;
+            foreach (int element in myList3)
+                {
+                Console.WriteLine(element);
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+                }
+           
+            Console.ReadKey();
+           
+
+            
+
+           
+
+            
         }
     }
 }
