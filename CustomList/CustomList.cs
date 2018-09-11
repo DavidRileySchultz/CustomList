@@ -12,7 +12,6 @@ namespace CustomList
         private int count { get; set; }
         private int newCapacity { get; set; }
         public T[] array { get; set; }
-
         public int Count
         {
             get {return count;}
@@ -52,7 +51,6 @@ namespace CustomList
                 array[index] = value;
             }
         }
-
         public IEnumerator<T> GetEnumerator()
         {
             for(int i = 0; i < Count; i++)
@@ -64,7 +62,6 @@ namespace CustomList
         {
             return GetEnumerator();
         }
-
         public void Add(T addNewValue)
         {
             count++;
@@ -79,7 +76,6 @@ namespace CustomList
                 {
                     newArray[i] = array[i];
                 }
-
                 newArray[count - 1] = addNewValue;
                 array = newArray;
             }
@@ -117,7 +113,6 @@ namespace CustomList
             }
             return list3;
         }
-
         public static CustomList<T> operator -(CustomList<T> list1, CustomList<T> list2)
         {
             for(int i = 0; i < list1.Count; i++)
@@ -134,7 +129,6 @@ namespace CustomList
             }
             return list1;
         }
-
         public CustomList<T> Zip(CustomList<T> list2)
         {
             CustomList<T> list3 = new CustomList<T>();
@@ -148,7 +142,6 @@ namespace CustomList
                 {
                     list3.Add(list2.array[i]);
                 }
-
             }
             return list3;
         }

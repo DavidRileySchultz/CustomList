@@ -13,18 +13,18 @@ namespace CustomList
             
             CustomList<int> myList = new CustomList<int>();
             CustomList<int> myList2 = new CustomList<int>();
-            myList.Add(12);
-            myList.Add(10);
-            myList.Add(9);
-            myList2.Add(12);
-            myList2.Add(32);
-            myList2.Add(9);
-            CustomList<int> myList3 = myList - myList2;
-            foreach (int element in myList3)
-                {
-                Console.WriteLine(element);
-
-                }
+            myList.Add(1);
+            myList.Add(3);
+            myList.Add(5);
+            myList2.Add(2);
+            myList2.Add(4);
+            myList2.Add(6);
+            CustomList<int> myList3 = (myList.Zip(myList2));
+            //foreach (int element in myList3.Zip())
+                //{
+                Console.WriteLine(myList3);
+                //break;
+               // }
            
             Console.ReadKey();
            

@@ -620,5 +620,79 @@ namespace UnitTest
             //Assert
             Assert.AreEqual(expectedResult, actualResult[5]);
         }
+        [TestMethod]
+        public void CheckIfListBecomesString()
+        {
+            //Arrange
+            CustomList<int> test1 = new CustomList<int>();
+
+            test1.Add(1);
+            test1.Add(2);
+            test1.Add(3);
+            string expectedResult = "123";
+            //Act
+            string actualResult = test1.ToString();
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+        [TestMethod]
+        public void CheckIfTwoListBecomesString()
+        {
+            //Arrange
+            CustomList<int> test1 = new CustomList<int>();
+            CustomList<int> test2 = new CustomList<int>();
+            test1.Add(1);
+            test1.Add(2);
+            test1.Add(3);
+            test2.Add(4);
+            test2.Add(5);
+            test2.Add(6);
+
+            string expectedResult = "123456";
+            //Act
+            string actualResult = (test1 + test2).ToString();
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+        [TestMethod]
+        public void CheckIfListOfStringsBecomesString()
+        {
+            //Arrange
+            CustomList<string> test1 = new CustomList<string>();
+
+            test1.Add("Hello ");
+            test1.Add("My ");
+            test1.Add("Name ");
+            test1.Add("Is ");
+            test1.Add("Riley");
+            test1.Add("!");
+            string expectedResult = "Hello My Name Is Riley!";
+            //Act
+            string actualResult = test1.ToString();
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+        [TestMethod]
+        public void CheckIfTwoListOfStringsBecomesString()
+        {
+            //Arrange
+            CustomList<string> test1 = new CustomList<string>();
+            CustomList<string> test2 = new CustomList<string>();
+            test1.Add("Hello ");
+            test1.Add("My ");
+            test1.Add("Name ");
+            test2.Add("Is ");
+            test2.Add("Riley");
+            test2.Add("!");
+            string expectedResult = "Hello My Name Is Riley!";
+            //Act
+            string actualResult = (test1 + test2).ToString();
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
     }
 }
