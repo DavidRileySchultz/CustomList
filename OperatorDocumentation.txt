@@ -1,0 +1,45 @@
+List<T> - operator 
+
+Takes one list of objects and subtracts another list of object from it. 
+
+Syntax:
+
+List1<T> = List1<T> - List2<T>
+
+Parameters:
+
+Requires an original List1<T> of objects and a second List2<T> of objects.
+
+Return type:
+
+Returns original List1<T> with remaining object(s) that have not been removed due to removal of matching values.
+
+Example:
+ 
+			CustomList<int> list1 = new CustomList<int>();
+            CustomList<int> list2 = new CustomList<int>();
+
+            list1.Add(1);
+            list1.Add(14);
+            list1.Add(6);
+            list1.Add(3);
+            list1.Add(22);
+            list2.Add(1);
+            list2.Add(3);
+            list2.Add(6);
+            list2.Add(14);
+
+            int expectedResult = 22;
+
+            CustomList<int> actualResult = list1 - list2;
+
+            
+            Assert.AreEqual(expectedResult, actualResult);
+
+In the above example, there are two lists of objects. 
+The first list's values are being compared to the values of the scond list.
+The - operator compares the values of the object in the lists.
+And subtracts the matching values from list1.
+So in this example list1 and list2 contain 1,14,6,3; therefore those values will be subtracted from list1.
+Leaving the Value of 22 in list1. 
+The expected result is 22, and the actual result when using the - operator will also be 22 in this case.
